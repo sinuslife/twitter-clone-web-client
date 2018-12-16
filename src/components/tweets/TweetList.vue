@@ -14,10 +14,10 @@
     name: "TweetList",
     components: {TweetRow},
     computed: {
-      ...mapGetters(['getFeed','isLogged'])
+      ...mapGetters(['getFeed', 'isLogged'])
     },
-    created(){
-      if (this.isLogged){
+    created() {
+      if (this.isLogged) {
         this.$store.dispatch('fetchFeed')
       }
     }
