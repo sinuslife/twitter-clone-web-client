@@ -1,20 +1,16 @@
 <template>
-  <!--<v-text-field-->
-  <!--v-model="searchQuery"-->
-  <!--@input="debounceSearch"-->
-
-  <!--flat-->
-  <!--solo-inverted-->
-  <!--hide-details-->
-  <!--prepend-inner-icon="search"-->
-  <!--label="Search"-->
-  <!--class="hidden-sm-and-down"-->
-  <!--&gt;</v-text-field>-->
-  <v-autocomplete
-    :items="users"
-    :search-input.sync="searchQuery"
+  <v-text-field
+    v-model="searchQuery"
     @input="debounceSearch"
-  ></v-autocomplete>
+
+    flat
+    solo-inverted
+    hide-details
+    prepend-inner-icon="search"
+    label="Search"
+    class="hidden-sm-and-down"
+  ></v-text-field>
+
 </template>
 
 <script>

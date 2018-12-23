@@ -107,7 +107,7 @@ const store = new Vuex.Store({
         },
         saveTweet({commit, dispatch}, tweet) {
           Vue.axios.post('/api/tweet', tweet).then(response => {
-            commit('addTweet', response.data)
+            //commit('addTweet', response.data)
           })
         },
         deleteTweet({commit}, tweet) {
@@ -163,6 +163,13 @@ const store = new Vuex.Store({
         search({commit, getters}) {
           commit('set', {type: 'loading', items: true});
           Vue.axios.get(`/api/search/${getters.searchQuery}`).then(response => {
+            commit('set', {type: 'users', items: response.data});
+            commit('set', {type: 'loading', items: false});
+          })
+        },
+        searchUser({commit}, searchQuery) {
+          commit('set', {type: 'loading', items: true});
+          Vue.axios.get(`/api/search/${searchQuery}`).then(response => {
             commit('set', {type: 'users', items: response.data});
             commit('set', {type: 'loading', items: false});
           })
